@@ -10,7 +10,7 @@
       var myDataRef = new Firebase('https://jssurvey.firebaseio.com/response_list');
 
       var serializeForm = function(event) {
-      console.log('submit!');
+        console.log('submit!');
         var entry = {
           rating: $("input[name=rating]:checked").val(),
           why: $("textarea[name=why]").val(),
