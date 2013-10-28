@@ -14,7 +14,7 @@
         var entry = {
           rating: $("input[name=rating]:checked").val(),
           why: $("textarea[name=why]").val(),
-          workshop_interest: $("input[name=workshop_interest]").val(),
+          workshop_interest: $("input[name=workshop_interest]").is(':checked') ? "Yes" : "No",
           request: $("textarea[name=learn]").val(),
           email: $("input[name=email]").val()
         };
