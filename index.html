@@ -10,9 +10,10 @@
       var myDataRef = new Firebase('https://jssurvey.firebaseio.com/response_list');
 
       var serializeForm = function(event) {
+        event.preventDefault();
         console.log('submit!');
         var entry = {
-          rating: $("input[name=rating]:checked").val(),
+          rating: $("input[name=rating]:checked").val() || null,
           why: $("textarea[name=why]").val(),
           workshop_interest: $("input[name=workshop_interest]").is(':checked') ? "Yes" : "No",
           request: $("textarea[name=learn]").val(),
@@ -20,7 +21,6 @@
         };
         myDataRef.push(entry);
         $('#message').show();
-        event.preventDefault();
       }
 
       $().ready(function() {
@@ -34,14 +34,16 @@
     <div id="message" style="background:#aea; padding:10px">
       <p>Thanks for your feedback!</p>
     </div>
+
     <h2>Class Survey</h2>
+
     <form novalidate>
       <label>How likely would you be to refer this course to a friend:</label><br/>
         <input type="radio" name="rating" value="1" /> 1
         <input type="radio" name="rating" value="2" /> 2
         <input type="radio" name="rating" value="3" /> 3
         <input type="radio" name="rating" value="4" /> 4
-        <input type="radio" name="rating" value="5" checked /> 5
+        <input type="radio" name="rating" value="5" /> 5
         <input type="radio" name="rating" value="6" /> 6
         <input type="radio" name="rating" value="7" /> 7
         <input type="radio" name="rating" value="8" /> 8
