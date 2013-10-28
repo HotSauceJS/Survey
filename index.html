@@ -10,17 +10,17 @@
       var myDataRef = new Firebase('https://jssurvey.firebaseio.com/response_list');
 
       var serializeForm = function(event) {
-      console.log('submit!');
+        event.preventDefault();
+        console.log('submit!');
         var entry = {
-          rating: $("input[name=rating]:checked").val(),
+          rating: $("input[name=rating]:checked").val() || null,
           why: $("textarea[name=why]").val(),
-          workshop_interest: $("input[name=workshop_interest]").val(),
+          workshop_interest: $("input[name=workshop_interest]").is(':checked') ? "Yes" : "No",
           request: $("textarea[name=learn]").val(),
           email: $("input[name=email]").val()
         };
         myDataRef.push(entry);
         $('#message').show();
-        event.preventDefault();
       }
 
       $().ready(function() {
@@ -33,29 +33,29 @@
   </head>
 
   <body>
-		<div class="container">
+    <div class="container">
 			
 	    <div id="message">
 	      <p>Thanks for your feedback!</p>
 	    </div>
 	    
-			<h2>Class Survey</h2>
+	    <h2>Class Survey</h2>
 	    <form novalidate>
 	      <label>How likely would you be to refer this course to a friend:</label>
-				<fieldset>
-					<span class="pos-left">Not Likely</span>
+	      <fieldset>
+		<span class="pos-left">Not Likely</span>
 	        <input type="radio" name="rating" value="1" /> 1
 	        <input type="radio" name="rating" value="2" /> 2
 	        <input type="radio" name="rating" value="3" /> 3
 	        <input type="radio" name="rating" value="4" /> 4
-	        <input type="radio" name="rating" value="5" checked /> 5
+	        <input type="radio" name="rating" value="5" /> 5
 	        <input type="radio" name="rating" value="6" /> 6
 	        <input type="radio" name="rating" value="7" /> 7
 	        <input type="radio" name="rating" value="8" /> 8
 	        <input type="radio" name="rating" value="9" /> 9
 	        <input type="radio" name="rating" value="10" /> 10
-					<span class="pos-right">Very Likely</span>
-				</fieldset>
+		<span class="pos-right">Very Likely</span>
+	      </fieldset>
 	      <br/>
 	      <label>Why?<br/>
 	        <textarea name="why"></textarea>
@@ -75,7 +75,8 @@
 	      <br/>
 	      <button type="submit">Submit</button>
 	    </form>
-		</div>
+    </div>
+
   </body>
 
 </html>
