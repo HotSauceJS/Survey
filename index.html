@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html>
   <head>
@@ -28,46 +28,55 @@
         $('form').submit(serializeForm);
       });
     </script>
+		<link href="styles.css" rel="stylesheet">
+		<style></style>
   </head>
 
   <body>
-    <div id="message" style="background:#aea; padding:10px">
-      <p>Thanks for your feedback!</p>
+    <div class="container">
+			
+	    <div id="message">
+	      <p>Thanks for your feedback!</p>
+	    </div>
+	    
+	    <h2>Class Survey</h2>
+	    <form novalidate>
+	      <label>How likely would you be to refer this course to a friend:</label>
+	      <fieldset>
+		<span class="pos-left">Not Likely</span>
+	        <input type="radio" name="rating" value="1" /> 1
+	        <input type="radio" name="rating" value="2" /> 2
+	        <input type="radio" name="rating" value="3" /> 3
+	        <input type="radio" name="rating" value="4" /> 4
+	        <input type="radio" name="rating" value="5" /> 5
+	        <input type="radio" name="rating" value="6" /> 6
+	        <input type="radio" name="rating" value="7" /> 7
+	        <input type="radio" name="rating" value="8" /> 8
+	        <input type="radio" name="rating" value="9" /> 9
+	        <input type="radio" name="rating" value="10" /> 10
+		<span class="pos-right">Very Likely</span>
+	      </fieldset>
+	      <br/>
+	      <label>Why?<br/>
+	        <textarea name="why"></textarea>
+	      </label>
+	      <br/>
+	      <label>Are you be interested in a longer form workshop or class?<br/>
+	        <input type="checkbox" name="workshop_interest" value="Yes"> Yeah, let me know.
+	      </label>
+	      <br/>
+	      <label>What would you like to learn?<br/>
+	        <textarea name="learn"></textarea>
+	      </label>
+	      <br/>
+	      <label>Email:<br/>
+	        <input type="text" name="email" />
+	      </label>
+	      <br/>
+	      <button type="submit">Submit</button>
+	    </form>
     </div>
 
-    <h2>Class Survey</h2>
-
-    <form novalidate>
-      <label>How likely would you be to refer this course to a friend:</label><br/>
-        <input type="radio" name="rating" value="1" /> 1
-        <input type="radio" name="rating" value="2" /> 2
-        <input type="radio" name="rating" value="3" /> 3
-        <input type="radio" name="rating" value="4" /> 4
-        <input type="radio" name="rating" value="5" /> 5
-        <input type="radio" name="rating" value="6" /> 6
-        <input type="radio" name="rating" value="7" /> 7
-        <input type="radio" name="rating" value="8" /> 8
-        <input type="radio" name="rating" value="9" /> 9
-        <input type="radio" name="rating" value="10" /> 10
-      <br/>
-      <label>Why?<br/>
-        <textarea name="why"></textarea>
-      </label>
-      <br/>
-      <label>Are you be interested in a longer form workshop or class?<br/>
-        <input type="checkbox" name="workshop_interest" value="Yes"> Yeah, let me know.
-      </label>
-      <br/>
-      <label>What would you like to learn?<br/>
-        <textarea name="learn"></textarea>
-      </label>
-      <br/>
-      <label>Email:<br/>
-        <input type="text" name="email" />
-      </label>
-      <br/>
-      <button>SUBMIT</button>
-    </form>
   </body>
 
 </html>
