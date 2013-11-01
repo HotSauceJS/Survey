@@ -7,12 +7,14 @@
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src='https://cdn.firebase.com/v0/firebase.js'></script>
     <script>
-      var myDataRef = new Firebase('https://jssurvey.firebaseio.com/response_list');
+      var myDataRef = new Firebase('https://survey-demo.firebaseio.com/response_list');
+
+      var entry;
 
       var serializeForm = function(event) {
         event.preventDefault();
         console.log('submit!');
-        var entry = {
+        entry = {
           rating: $("input[name=rating]:checked").val() || null,
           why: $("textarea[name=why]").val(),
           workshop_interest: $("input[name=workshop_interest]").is(':checked') ? "Yes" : "No",
@@ -20,13 +22,14 @@
           email: $("input[name=email]").val()
         };
         myDataRef.push(entry);
+       
         $('#message').show();
       }
 
       $().ready(function() {
         $('#message').hide();
         $('form').submit(serializeForm);
-      });
+      });        console.log();
     </script>
 		<link href="styles.css" rel="stylesheet">
 		<style></style>
